@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <meta name="theme-color" content="#000000">
+  <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta name="google-site-verification" content="9KUMewBpwfv4MhP4xEXST8aHsi17KcMHOYrx1rWs25c" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108743037-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108743037-1');
+  </script>
+  <title>şoför amca</title>
+</head>
+<style>
+  .message {
+    color: white;
+    font-size: 10pt;
+    background: #1c8eee;
+    white-space: nowrap;
+  }
+</style>
+</style>
+
+<body>
+  <div id="root"></div>
+  <script>
+    var mapLoaded = false;
+    function initMap() {
+      mapLoaded = true;
+    }
+  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing,places&key=AIzaSyAilx1KtPvZLzdri-ac8To4JrWHVtDTE2E&callback=initMap"></script>
+  <script type="text/javascript" src="infobox.js"></script>
+  <script>
+    if (window.location.protocol == 'http:') {
+      /*location.href = 'https://' + window.location.host + window.location.pathname;*/
+    } else {
+      document.addEventListener('touchmove', function (event) {
+        if (event.scale !== 1) { event.preventDefault(); }
+      }, false);
+      var lastTouchEnd = 0;
+      document.addEventListener('touchend', function (event) {
+        var now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+          event.preventDefault();
+        }
+        lastTouchEnd = now;
+      }, false);
+
+      var ua = window.navigator.userAgent;
+      var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+      var webkit = !!ua.match(/WebKit/i);
+      var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+
+      if (iOSSafari) {
+        alert("Mobile Safari browsing may be inconvenient for chatting.\nwe recommend to use other browser.\nplease visit https://browsehappy.com/")
+      }
+    }
+  </script>
+  <!-- Google Analytics -->
+  <script>
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+    ga('create', 'UA-108743037-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- End Google Analytics -->
+</body>
+
+</html>

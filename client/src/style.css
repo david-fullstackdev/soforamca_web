@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+}
+
+a.tab {
+    padding: 10px 0;
+    text-align: center;
+    background: grey;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.tab.active {
+    background: white;
+    color: grey;
+    text-decoration: none;
+}
+.infoBox{
+    overflow: hidden;
+}
